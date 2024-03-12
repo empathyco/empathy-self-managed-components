@@ -14,7 +14,7 @@ Once you have the necessary stack, follow these three steps:
 1. Go to the root of project and execute:
 
     ```
-    ./start.sh
+    docker-compose up -d
     ```
     Make sure you have root permises.
 

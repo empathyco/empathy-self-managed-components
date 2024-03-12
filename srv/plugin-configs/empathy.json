@@ -1,1 +1,1117 @@
-{}
+{
+    "params": {
+      "endPoints": [
+        {
+          "id": "test-search",
+          "requestors": [
+            {
+              "features": {
+                "fallback": [
+                  {
+                    "config": {
+                      "field": "field"
+                    },
+                    "name": "customFallback"
+                  },
+                  {
+                    "config": {
+                      "collectionType": "CATALOG",
+                      "enablePhraseSuggester": true,
+                      "mainCollectionId": "empathy",
+                      "redisCached": true,
+                      "redisTTL": 250,
+                      "secondaryCollectionId": "empathy"
+                    },
+                    "name": "spellcheck"
+                  }
+                ],
+                "search": [
+                  {
+                    "config": {
+                      "searchableFields": [
+                        {
+                          "name": "name"
+                        },
+                        {
+                          "name": "gender"
+                        },
+                        {
+                          "name": "categories"
+                        },
+                        {
+                          "name": "color"
+                        }
+                      ]
+                    },
+                    "name": "multiMatchSearch"
+                  },
+                  {
+                    "config": {
+                      "defaultOrder": "DESC",
+                      "fields": [
+                        {
+                          "field": "_score",
+                          "order": "DESC"
+                        }
+                      ],
+                      "whitelist": [
+                        "_score",
+                        "price"
+                      ]
+                    },
+                    "name": "sorting"
+                  },
+                  {
+                    "config": {
+                      "rows": 20,
+                      "start": 0
+                    },
+                    "name": "pagination"
+                  },
+                  {
+                    "config": {
+                      "fields": [
+                        {
+                          "name": "gender",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "brand",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "fit",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "price",
+                          "type": "RANGE"
+                        },
+                        {
+                          "name": "categoryIds",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "store",
+                          "type": "VALUE"
+                        }
+                      ]
+                    },
+                    "name": "filtering"
+                  },
+                  {
+                    "config": {
+                      "context": "SEARCH",
+                      "enabled": true,
+                      "facetableFields": {
+                        "hierarchicalFacets": [
+                          {
+                            "field": "categoryPaths",
+                            "filterField": "categoryIds"
+                          }
+                        ],
+                        "rangeFacets": [
+                          {
+                            "field": "price",
+                            "ranges": [
+                              {
+                                "from": 0,
+                                "gap": 2,
+                                "to": 10
+                              },
+                              {
+                                "from": 900,
+                                "gap": 100,
+                                "to": 2000
+                              }
+                            ]
+                          }
+                        ],
+                        "valueFacets": [
+                          {
+                            "field": "gender"
+                          },
+                          {
+                            "field": "brand"
+                          },
+                          {
+                            "field": "fit"
+                          }
+                        ]
+                      },
+                      "facets": [
+                        "categoryPaths",
+                        "price",
+                        "gender"
+                      ],
+                      "mainCollectionId": "empathy",
+                      "secondaryCollectionId": "empathy"
+                    },
+                    "name": "faceting"
+                  },
+                  {
+                    "name": "searchHits",
+                    "config": {
+                      "returnableFields": [
+                        {
+                          "field": "id"
+                        },
+                        {
+                          "field": "name"
+                        },
+                        {
+                          "field": "image"
+                        },
+                        {
+                          "field": "price_{store}"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "totalHits"
+                  },
+                  {
+                    "name": "customScore"
+                  },
+                  {
+                    "config": {
+                      "boostMode": "sum",
+                      "enabled": true,
+                      "factorValue": 1,
+                      "fieldName": "rating",
+                      "modifier": "none"
+                    },
+                    "name": "functionScore"
+                  },
+                  {
+                    "config": {
+                      "context": "SEARCH",
+                      "mainCollectionId": "empathy",
+                      "secondaryCollectionId": "empathy",
+                      "boosts": [
+                        {
+                          "field": "fit",
+                          "value": "Regular",
+                          "boostFactor": 100.0,
+                          "action": "BOOST"
+                        },
+                        {
+                          "field": "color",
+                          "value": "black",
+                          "boostFactor": 0.01,
+                          "action": "BURY"
+                        }
+                      ]
+                    },
+                    "name": "boosting"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "catalog",
+              "mainCollectionId": "empathy",
+              "postprocessors": [
+                {
+                  "name": "explain"
+                }
+              ],
+              "redisCached": true,
+              "redisTTL": 250,
+              "type": "default"
+            }
+          ],
+          "type": "custom"
+        },
+        {
+          "id": "search",
+          "requestors": [
+            {
+              "features": {
+                "fallback": [
+                  {
+                    "config": {
+                      "collectionType": "CATALOG",
+                      "enablePhraseSuggester": true,
+                      "mainCollectionId": "empathy",
+                      "redisCached": true,
+                      "redisTTL": 250,
+                      "secondaryCollectionId": "empathy"
+                    },
+                    "name": "spellcheck"
+                  },
+                  {
+                    "config": {
+                      "collectionType": "CATALOG",
+                      "enablePhraseSuggester": true,
+                      "mainCollectionId": "empathy",
+                      "redisCached": true,
+                      "redisTTL": 250,
+                      "secondaryCollectionId": "empathy",
+                      "returnableFields": [
+                        "id",
+                        "name",
+                        "image"
+                      ]
+                    },
+                    "name": "partials"
+                  }
+                ],
+                "search": [
+                  {
+                    "config": {
+                      "searchableFields": [
+                        {
+                          "name": "name"
+                        },
+                        {
+                          "name": "gender"
+                        },
+                        {
+                          "name": "categories"
+                        },
+                        {
+                          "name": "color"
+                        }
+                      ]
+                    },
+                    "name": "multiMatchSearch"
+                  },
+                  {
+                    "config": {
+                      "defaultOrder": "DESC",
+                      "fields": [
+                        {
+                          "field": "_score",
+                          "order": "DESC"
+                        }
+                      ],
+                      "whitelist": [
+                        "_score",
+                        "price"
+                      ]
+                    },
+                    "name": "sorting"
+                  },
+                  {
+                    "config": {
+                      "rows": 20,
+                      "start": 0
+                    },
+                    "name": "pagination"
+                  },
+                  {
+                    "config": {
+                      "fields": [
+                        {
+                          "name": "gender",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "brand",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "fit",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "price",
+                          "type": "RANGE"
+                        },
+                        {
+                          "name": "categoryIds",
+                          "type": "VALUE"
+                        }
+                      ]
+                    },
+                    "name": "filtering"
+                  },
+                  {
+                    "config": {
+                      "context": "SEARCH",
+                      "enabled": true,
+                      "facetableFields": {
+                        "hierarchicalFacets": [
+                          {
+                            "field": "categoryPaths",
+                            "filterField": "categoryIds"
+                          }
+                        ],
+                        "rangeFacets": [
+                          {
+                            "field": "price",
+                            "ranges": [
+                              {
+                                "from": 0,
+                                "gap": 2,
+                                "to": 10
+                              },
+                              {
+                                "from": 100,
+                                "gap": 500,
+                                "to": 2000
+                              }
+                            ]
+                          }
+                        ],
+                        "valueFacets": [
+                          {
+                            "field": "gender"
+                          },
+                          {
+                            "field": "brand"
+                          },
+                          {
+                            "field": "fit"
+                          }
+                        ]
+                      },
+                      "facets": [
+                        "categoryPaths",
+                        "price",
+                        "gender"
+                      ],
+                      "mainCollectionId": "empathy",
+                      "secondaryCollectionId": "empathy"
+                    },
+                    "name": "faceting"
+                  },
+                  {
+                    "name": "searchHits"
+                  },
+                  {
+                    "name": "totalHits"
+                  },
+                  {
+                    "name": "customScore"
+                  },
+                  {
+                    "config": {
+                      "boostMode": "sum",
+                      "enabled": true,
+                      "factorValue": 1,
+                      "fieldName": "rating",
+                      "modifier": "none"
+                    },
+                    "name": "functionScore"
+                  },
+                  {
+                    "config": {
+                      "context": "SEARCH",
+                      "mainCollectionId": "empathy",
+                      "secondaryCollectionId": "empathy",
+                      "boosts": [
+                        {
+                          "field": "fit",
+                          "value": "regular",
+                          "boostFactor": 100.0,
+                          "action": "BOOST"
+                        },
+                        {
+                          "field": "color",
+                          "value": "black",
+                          "boostFactor": 0.01,
+                          "action": "BURY"
+                        }
+                      ]
+                    },
+                    "name": "boosting"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "catalog",
+              "mainCollectionId": "empathy",
+              "postprocessors": [
+                {
+                  "name": "explain"
+                }
+              ],
+              "redisCached": true,
+              "redisTTL": 250,
+              "type": "default"
+            },
+            {
+              "config": {
+                "linkType": "DIRECT",
+                "queryParamFilters": [
+                  {
+                    "field": "langs",
+                    "queryParam": "lang"
+                  },
+                  {
+                    "field": "filters.scope",
+                    "queryParam": "scope"
+                  }
+                ]
+              },
+              "id": "direct",
+              "mainCollectionId": "empathy",
+              "secondaryCollectionId": "empathy",
+              "type": "links"
+            },
+            {
+              "config": {
+                "linkType": "PROMOTED",
+                "queryParamFilters": [
+                  {
+                    "field": "langs",
+                    "queryParam": "lang"
+                  },
+                  {
+                    "field": "filters.scope",
+                    "queryParam": "scope"
+                  }
+                ]
+              },
+              "id": "promoted",
+              "mainCollectionId": "empathy",
+              "secondaryCollectionId": "empathy",
+              "type": "links"
+            },
+            {
+              "config": {
+                "linkType": "BANNER",
+                "queryParamFilters": [
+                  {
+                    "field": "langs",
+                    "queryParam": "lang"
+                  },
+                  {
+                    "field": "filters.scope",
+                    "queryParam": "scope"
+                  }
+                ]
+              },
+              "id": "banner",
+              "mainCollectionId": "empathy",
+              "secondaryCollectionId": "empathy",
+              "type": "links"
+            }
+          ],
+          "type": "custom"
+        },
+        {
+          "id": "browse",
+          "requestors": [
+            {
+              "features": {
+                "search": [
+                  {
+                    "name": "browsingSearch"
+                  },
+                  {
+                    "config": {
+                      "defaultOrder": "DESC",
+                      "fields": [
+                        {
+                          "field": "_score",
+                          "order": "DESC"
+                        }
+                      ],
+                      "whitelist": [
+                        "_score",
+                        "price"
+                      ]
+                    },
+                    "name": "sorting"
+                  },
+                  {
+                    "config": {
+                      "rows": 20,
+                      "start": 0
+                    },
+                    "name": "pagination"
+                  },
+                  {
+                    "config": {
+                      "fields": [
+                        {
+                          "name": "gender",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "brand",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "fit",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "price",
+                          "type": "RANGE"
+                        },
+                        {
+                          "name": "categoryIds",
+                          "type": "VALUE"
+                        }
+                      ]
+                    },
+                    "name": "filtering"
+                  },
+                  {
+                    "config": {
+                      "context": "BROWSE",
+                      "enabled": true,
+                      "facetableFields": {
+                        "hierarchicalFacets": [
+                          {
+                            "field": "categoryPaths",
+                            "filterField": "categoryIds"
+                          }
+                        ],
+                        "rangeFacets": [
+                          {
+                            "field": "price",
+                            "ranges": [
+                              {
+                                "from": 0,
+                                "gap": 2,
+                                "to": 10
+                              },
+                              {
+                                "from": 10,
+                                "gap": 10,
+                                "to": 100
+                              }
+                            ]
+                          }
+                        ],
+                        "valueFacets": [
+                          {
+                            "field": "gender"
+                          },
+                          {
+                            "field": "brand"
+                          },
+                          {
+                            "field": "fit"
+                          }
+                        ]
+                      },
+                      "facets": [
+                        "categoryPaths",
+                        "price",
+                        "gender"
+                      ],
+                      "mainCollectionId": "empathy",
+                      "secondaryCollectionId": "empathy"
+                    },
+                    "name": "faceting"
+                  },
+                  {
+                    "config": {
+                      "context": "BROWSE",
+                      "mainCollectionId": "empathy",
+                      "secondaryCollectionId": "empathy",
+                      "boosts": [
+                        {
+                          "field": "fit",
+                          "value": "regular",
+                          "boostFactor": 100.0,
+                          "action": "BOOST"
+                        },
+                        {
+                          "field": "color",
+                          "value": "black",
+                          "boostFactor": 0.01,
+                          "action": "BURY"
+                        }
+                      ]
+                    },
+                    "name": "boosting"
+                  },
+                  {
+                    "name": "searchHits"
+                  },
+                  {
+                    "name": "totalHits"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "catalog",
+              "mainCollectionId": "empathy",
+              "redisCached": true,
+              "redisTTL": 250,
+              "type": "default"
+            }
+          ],
+          "type": "custom"
+        },
+        {
+          "id": "keywords",
+          "requestors": [
+            {
+              "features": {
+                "search": [
+                  {
+                    "config": {
+                      "field": "color"
+                    },
+                    "name": "termSearch"
+                  },
+                  {
+                    "config": {
+                      "origin": "SOURCE",
+                      "returnableFields": [
+                        {
+                          "field": "color"
+                        },
+                        {
+                          "field": "categories"
+                        },
+                        {
+                          "field": "price"
+                        }
+                      ]
+                    },
+                    "name": "searchHits"
+                  },
+                  {
+                    "config": {
+                      "defaultOrder": "DESC",
+                      "fields": [
+                        {
+                          "field": "_score",
+                          "order": "DESC"
+                        }
+                      ],
+                      "whitelist": [
+                        "_score",
+                        "price"
+                      ]
+                    },
+                    "name": "sorting"
+                  },
+                  {
+                    "config": {
+                      "rows": 20,
+                      "start": 0
+                    },
+                    "name": "pagination"
+                  },
+                  {
+                    "config": {
+                      "fields": [
+                        {
+                          "name": "gender",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "brand",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "fit",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "price",
+                          "type": "RANGE"
+                        },
+                        {
+                          "name": "categoryIds",
+                          "type": "VALUE"
+                        }
+                      ]
+                    },
+                    "name": "filtering"
+                  },
+                  {
+                    "config": {
+                      "context": "BROWSE",
+                      "enabled": true,
+                      "facetableFields": {
+                        "hierarchicalFacets": [
+                          {
+                            "field": "categoryPaths",
+                            "filterField": "categoryIds"
+                          }
+                        ],
+                        "rangeFacets": [
+                          {
+                            "field": "price",
+                            "ranges": [
+                              {
+                                "from": 0,
+                                "gap": 2,
+                                "to": 10
+                              },
+                              {
+                                "from": 10,
+                                "gap": 10,
+                                "to": 100
+                              }
+                            ]
+                          }
+                        ],
+                        "valueFacets": [
+                          {
+                            "field": "gender"
+                          },
+                          {
+                            "field": "brand"
+                          },
+                          {
+                            "field": "fit"
+                          }
+                        ]
+                      },
+                      "facets": [
+                        "categoryPaths",
+                        "price",
+                        "gender"
+                      ],
+                      "mainCollectionId": "empathy",
+                      "secondaryCollectionId": "empathy"
+                    },
+                    "name": "faceting"
+                  },
+                  {
+                    "name": "totalHits"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "catalog",
+              "mainCollectionId": "empathy",
+              "redisCached": true,
+              "redisTTL": 250,
+              "type": "default"
+            }
+          ],
+          "type": "custom"
+        },
+        {
+          "id": "empathize",
+          "requestors": [
+            {
+              "collectionType": "EMPATHIZE",
+              "features": {
+                "fallback": [
+                  {
+                    "config": {
+                      "collectionType": "EMPATHIZE",
+                      "enablePhraseSuggester": false,
+                      "mainCollectionId": "empathy",
+                      "secondaryCollectionId": "empathy"
+                    },
+                    "name": "spellcheck"
+                  }
+                ],
+                "search": [
+                  {
+                    "config": {
+                      "emptyQueryParamAllowed": true,
+                      "field": "keywords",
+                      "queryOperator": "AND"
+                    },
+                    "name": "matchSearch"
+                  },
+                  {
+                    "config": {
+                      "fields": [
+                        {
+                          "name": "extra_lang",
+                          "queryParam": "lang",
+                          "type": "VALUE"
+                        },
+                        {
+                          "name": "extra_scope",
+                          "queryParam": "scope",
+                          "type": "VALUE"
+                        }
+                      ]
+                    },
+                    "name": "filtering"
+                  },
+                  {
+                    "config": {
+                      "defaultOrder": "DESC",
+                      "fields": [
+                        {
+                          "field": "weight",
+                          "order": "DESC"
+                        }
+                      ]
+                    },
+                    "name": "sorting"
+                  },
+                  {
+                    "config": {
+                      "rows": 10,
+                      "start": 0
+                    },
+                    "name": "pagination"
+                  },
+                  {
+                    "config": {
+                      "enabled": true,
+                      "field": "keywords.keyword"
+                    },
+                    "name": "grouping"
+                  },
+                  {
+                    "config": {
+                      "disableTracking": true
+                    },
+                    "name": "totalHits"
+                  },
+                  {
+                    "config": {
+                      "returnableFields": [
+                        {
+                          "field": "keywords",
+                          "mandatory": true
+                        }
+                      ]
+                    },
+                    "name": "searchHits"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "topTrends",
+              "mainCollectionId": "empathy",
+              "redisCached": true,
+              "redisTTL": 250,
+              "secondaryCollectionId": "empathy",
+              "transformers": {
+                "document": {
+                  "config": {
+                    "fieldMappings": [
+                      {
+                        "from": "keywords",
+                        "to": "title_raw"
+                      }
+                    ]
+                  },
+                  "name": "fieldRename"
+                }
+              },
+              "type": "default"
+            }
+          ],
+          "type": "custom"
+        },
+        {
+          "id": "topclicked",
+          "requestors": [
+            {
+              "features": {
+                "search": [
+                  {
+                    "config": {
+                      "filters": [
+                        {
+                          "field": "extra.lang",
+                          "queryParam": "lang"
+                        },
+                        {
+                          "field": "extra.scope",
+                          "queryParam": "scope"
+                        }
+                      ],
+                      "idFieldName": "groupId",
+                      "redisCached": true,
+                      "redisTTL": 250
+                    },
+                    "name": "topClickedSearch"
+                  },
+                  {
+                    "config": {
+                      "rows": 20,
+                      "start": 0
+                    },
+                    "name": "pagination"
+                  },
+                  {
+                    "name": "searchHits"
+                  },
+                  {
+                    "name": "totalHits"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "topclicked",
+              "mainCollectionId": "empathy",
+              "redisCached": true,
+              "redisTTL": 250,
+              "type": "default"
+            }
+          ],
+          "type": "custom"
+        },
+        {
+          "id": "field-values",
+          "requestors": [
+            {
+              "features": {
+                "search": [
+                  {
+                    "config": {
+                      "allowedFields": [
+                        {
+                          "aggregationField": "categoryPaths",
+                          "aggregationSize": 1000,
+                          "fieldName": "categoryIds"
+                        },
+                        {
+                          "aggregationField": "gender",
+                          "aggregationSize": 1000,
+                          "fieldName": "gender"
+                        }
+                      ]
+                    },
+                    "name": "fieldValues"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "attributes",
+              "mainCollectionId": "empathy",
+              "redisCached": true,
+              "redisTTL": 250,
+              "type": "default"
+            }
+          ],
+          "type": "custom"
+        },
+        {
+          "id": "skusearch",
+          "requestors": [
+            {
+              "features": {
+                "search": [
+                  {
+                    "config": {
+                      "searchableFields": [
+                        {
+                          "name": "empathy_sku"
+                        }
+                      ],
+                      "equalizeProviderEnabled": false
+                    },
+                    "name": "multiMatchSearch"
+                  },
+                  {
+                    "name": "searchHits"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "catalog",
+              "mainCollectionId": "empathy",
+              "redisCached": true,
+              "redisTTL": 250,
+              "type": "default"
+            }
+          ],
+          "type": "custom"
+        },
+        {
+          "id": "category-search",
+          "requestors": [
+            {
+              "collectionType": "CATEGORIES",
+              "features": {
+                "search": [
+                  {
+                    "config": {
+                      "searchableFields": [
+                        {
+                          "name": "name"
+                        }
+                      ],
+                      "equalizeProviderEnabled": false
+                    },
+                    "name": "multiMatchSearch"
+                  },
+                  {
+                    "name": "pagination"
+                  },
+                  {
+                    "config": {
+                      "returnableFields": [
+                        {
+                          "field": "id"
+                        },
+                        {
+                          "field": "name"
+                        },
+                        {
+                          "field": "url"
+                        }
+                      ]
+                    },
+                    "name": "searchHits"
+                  },
+                  {
+                    "config": {
+                      "fields": [
+                        {
+                          "mandatory": true,
+                          "name": "lang",
+                          "type": "VALUE"
+                        }
+                      ]
+                    },
+                    "name": "filtering"
+                  },
+                  {
+                    "name": "debug"
+                  }
+                ]
+              },
+              "id": "catalog",
+              "mainCollectionId": "empathy",
+              "redisCached": true,
+              "redisTTL": 250,
+              "secondaryCollectionId": "empathy",
+              "type": "default"
+            }
+          ],
+          "type": "custom"
+        }
+      ],
+      "equalize": [
+        {
+          "boost": 1,
+          "field": "description"
+        }
+      ],
+      "clientConfig": {
+        "instance": "empathy",
+        "workersSize": 5,
+        "pivots": [
+            {
+                "name": "lang"
+            },
+            {
+                "name": "store"
+            }
+        ],
+        "pluginless": true
+      }
+    }
+  }
