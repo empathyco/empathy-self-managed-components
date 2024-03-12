@@ -1,0 +1,50 @@
+version: '3.7'
+networks:
+  mongo-net:
+    name: mongo-net
+services:
+  search-mongo-2:
+    hostname: search-mongo-2
+    container_name: search-mongo-2
+    image: mongo:4.4.4
+    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/data/file.key", "--replSet", "rs", "--journal", "--bind_ip_all" ]
+    ports:
+      - "27018:27017"
+    restart: always
+    networks:
+      - mongo-net
+    volumes:
+      - "./mongo-config/file.key:/data/file.key"
+      - "../volumes/mongo/mongo2/db:/data/db"
+
+  search-mongo-1:
+    hostname: search-mongo-1
+    container_name: search-mongo-1
+    image: mongo:4.4.4
+    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/data/file.key", "--replSet", "rs", "--journal", "--bind_ip_all" ]
+    ports:
+      - "27019:27017"
+    restart: always
+    networks:
+      - mongo-net
+    volumes:
+      - "./mongo-config/file.key:/data/file.key"
+      - "../volumes/mongo/mongo1/db:/data/db"
+
+  search-mongo-0:
+    hostname: search-mongo-0
+    container_name: search-mongo-0
+    image: mongo:4.4.4
+    command: bash -c "/usr/bin/mongod --keyFile /data/file.key --replSet rs --journal --bind_ip_all"
+    ports:
+      - "27017:27017"
+    links:
+      - search-mongo-1:search-mongo-1
+      - search-mongo-2:search-mongo-2
+    restart: always
+    networks:
+      - mongo-net
+    volumes:
+      - "./mongo-config/configuration.sh:/scripts/configuration.sh"
+      - "./mongo-config/file.key:/data/file.key"
+      - "../volumes/mongo/mongo0/db:/data/db"

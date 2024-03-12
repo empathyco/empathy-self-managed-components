@@ -1,0 +1,58 @@
+version: "3"
+networks:
+  empathy_network:
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.7.1
+    container_name: elasticsearch-empathy
+    networks:
+      - empathy_network
+    environment:
+      - "cluster.name=elasticsearch-cluster" #Sets the cluster name
+      - "node.name=elasticsearch" #Sets node name
+      - "xpack.security.enabled=false"
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - "IPC_LOCK"
+    volumes:
+      - "./volumes/elasticsearch/data:/usr/share/elasticsearch/data"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  search-service:
+    image: search-service@sha256:a37d560e4b5a72468f780969efd5a04be5dcd6c78bb90d4febec274140ac57ba
+    container_name: search-service
+    networks:
+      - empathy_network
+    environment:
+      - JAVA_HEAP=256m
+      - SPRING_PROFILES_ACTIVE=plugins-files.local,plugins-configs.local
+      - COLLECTION_NAMING_CONFIG_PROVIDER=local
+      - PLUGINS_FILES_LOCAL_PATH=/srv/plugins
+      - COLLECTION_NAMING_CONFIG_LOCAL_PATH=/srv/collection-config/collection-name-config.json
+      - COLLECTION_NAMING_CONFIG_INSTANCE=test
+      - PLUGINS_CONFIGS_LOCAL_PATH=/srv/plugin-configs
+      - ELASTIC_READ_URL=http://elasticsearch:9200
+      - TRACKING_ENABLED=false
+      - MONGODB_CONNECTION_URL=mongodb://search:7G16WWzYdHhg6Iu0@docker.for.mac.localhost:27017/search-service
+    volumes:
+      - "./srv/plugins:/srv/plugins"
+      - "./srv/plugin-configs:/srv/plugin-configs"
+      - "./srv/collection-config:/srv/collection-config"
+    ports:
+      - 8080:8080
+  cerebro:
+    image: lmenezes/cerebro:latest
+    container_name: cerebro
+    networks:
+      - empathy_network
+    ports:
+      - "9000:9000"
