@@ -6,11 +6,11 @@
              "requestors":[
                 {
                    "id":"topTrends",
-                   "mainCollectionId":"empathy",
+                   "mainCollectionId":"imdb",
                    "redisCached":true,
                    "redisTTL":1000,
                    "collectionType":"EMPATHIZE",
-                   "secondaryCollectionId":"empathy",
+                   "secondaryCollectionId":"imdb",
                    "type":"default",
                    "postprocessors":[
                       {
@@ -24,8 +24,8 @@
                             "config":{
                                "collectionType":"EMPATHIZE",
                                "enablePhraseSuggester":false,
-                               "mainCollectionId":"empathy",
-                               "secondaryCollectionId":"empathy"
+                               "mainCollectionId":"imdb",
+                               "secondaryCollectionId":"imdb"
                             }
                          }
                       ],
@@ -116,10 +116,10 @@
                             "config":{
                                "collectionType":"CATALOG",
                                "enablePhraseSuggester":true,
-                               "mainCollectionId":"empathy",
+                               "mainCollectionId":"imdb",
                                "redisCached":true,
                                "redisTTL":250,
-                               "secondaryCollectionId":"empathy"
+                               "secondaryCollectionId":"imdb"
                             },
                             "name":"spellcheck"
                          }
@@ -129,16 +129,16 @@
                             "config":{
                                "searchableFields":[
                                   {
-                                     "name":"name"
+                                     "name":"originalTitle"
                                   },
                                   {
-                                     "name":"gender"
+                                     "name":"primaryTitle"
                                   },
                                   {
-                                     "name":"categories"
+                                     "name":"genres"
                                   },
                                   {
-                                     "name":"color"
+                                     "name":"type"
                                   }
                                ]
                             },
@@ -155,7 +155,7 @@
                                ],
                                "whitelist":[
                                   "_score",
-                                  "price"
+                                  "startYear"
                                ]
                             },
                             "name":"sorting"
@@ -171,23 +171,19 @@
                             "config":{
                                "fields":[
                                   {
-                                     "name":"gender",
+                                     "name":"genres",
                                      "type":"VALUE"
                                   },
                                   {
-                                     "name":"brand",
+                                     "name":"type",
                                      "type":"VALUE"
                                   },
                                   {
-                                     "name":"fit",
-                                     "type":"VALUE"
-                                  },
-                                  {
-                                     "name":"price",
+                                     "name":"runtimeMinutes",
                                      "type":"RANGE"
                                   },
                                   {
-                                     "name":"categoryIds",
+                                     "name":"isAdult",
                                      "type":"VALUE"
                                   }
                                ]
@@ -199,24 +195,23 @@
                                "context":"SEARCH",
                                "enabled":true,
                                "facetableFields":{
-                                  "hierarchicalFacets":[
-                                     {
-                                        "field":"categoryPaths",
-                                        "filterField":"categoryIds"
-                                     }
-                                  ],
                                   "rangeFacets":[
                                      {
-                                        "field":"price",
+                                        "field":"runtimeMinutes",
                                         "ranges":[
-                                           {
-                                              "from":0,
-                                              "gap":2,
-                                              "to":10
+                                          {
+                                             "from":0,
+                                             "gap":2,
+                                             "to":10
+                                          }, 
+                                          {
+                                              "from":10,
+                                              "gap":20,
+                                              "to":60
                                            },
                                            {
-                                              "from":100,
-                                              "gap":500,
+                                              "from":60,
+                                              "gap":60,
                                               "to":2000
                                            }
                                         ]
@@ -224,23 +219,24 @@
                                   ],
                                   "valueFacets":[
                                      {
-                                        "field":"gender"
+                                        "field":"genres"
                                      },
                                      {
-                                        "field":"brand"
+                                        "field":"type"
                                      },
                                      {
-                                        "field":"fit"
+                                       "field":"isAdult"
                                      }
                                   ]
                                },
                                "facets":[
-                                  "categoryPaths",
-                                  "price",
-                                  "gender"
+                                  "genres",
+                                  "isAdult",
+                                  "type",
+                                  "runtimeMinutes"
                                ],
-                               "mainCollectionId":"empathy",
-                               "secondaryCollectionId":"empathy"
+                               "mainCollectionId":"imdb",
+                               "secondaryCollectionId":"imdb"
                             },
                             "name":"faceting"
                          },
@@ -256,7 +252,7 @@
                       ]
                    },
                    "id":"catalog",
-                   "mainCollectionId":"empathy",
+                   "mainCollectionId":"imdb",
                    "postprocessors":[
                       {
                          "name":"explain"
@@ -281,8 +277,8 @@
                       ]
                    },
                    "id":"direct",
-                   "mainCollectionId":"empathy",
-                   "secondaryCollectionId":"empathy",
+                   "mainCollectionId":"imdb",
+                   "secondaryCollectionId":"imdb",
                    "type":"links"
                 },
                 {
@@ -300,8 +296,8 @@
                       ]
                    },
                    "id":"promoted",
-                   "mainCollectionId":"empathy",
-                   "secondaryCollectionId":"empathy",
+                   "mainCollectionId":"imdb",
+                   "secondaryCollectionId":"imdb",
                    "type":"links"
                 },
                 {
@@ -319,8 +315,8 @@
                       ]
                    },
                    "id":"banner",
-                   "mainCollectionId":"empathy",
-                   "secondaryCollectionId":"empathy",
+                   "mainCollectionId":"imdb",
+                   "secondaryCollectionId":"imdb",
                    "type":"links"
                 }
              ],
@@ -328,7 +324,7 @@
           }
        ],
        "clientConfig":{
-          "instance":"empathy",
+          "instance":"imdb",
           "workersSize":5,
           "pivots":[
              {
