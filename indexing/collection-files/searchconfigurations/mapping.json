@@ -1,0 +1,182 @@
+{
+    "mappings": {
+      "dynamic_templates": [
+        {
+          "context_pivots": {
+            "path_match": "context.pivots.*",
+            "mapping": {
+              "type": "keyword"
+            }
+          }
+        },
+        {
+          "elements_ranking_filters": {
+            "path_match": "elements_ranking.filters.*",
+            "mapping": {
+              "type": "keyword"
+            }
+          }
+        },
+        {
+          "eb_job_properties": {
+            "path_match": "_jobProperties.*",
+            "mapping": {
+              "index": false,
+              "type": "keyword"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "_jobProperties": {
+          "properties": {
+            "_eb_date_": {
+              "type": "keyword",
+              "index": false
+            },
+            "correlationId": {
+              "type": "keyword",
+              "index": false
+            }
+          }
+        },
+        "context": {
+          "properties": {
+            "keywords": {
+              "type": "keyword",
+              "normalizer": "keyword_normalizer"
+            },
+            "pivots": {
+              "properties": {
+                "lang": {
+                  "type": "keyword"
+                },
+                "scope": {
+                  "type": "keyword"
+                },
+                "store": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "elements_ranking": {
+          "type": "nested",
+          "properties": {
+            "action": {
+              "type": "keyword"
+            },
+            "field_name": {
+              "type": "keyword"
+            },
+            "field_value": {
+              "type": "keyword"
+            },
+            "filters": {
+              "properties": {
+                "scope": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "schedule": {
+              "properties": {
+                "activation_date": {
+                  "type": "date",
+                  "format": "date_time_no_millis"
+                },
+                "deactivation_date": {
+                  "type": "date",
+                  "format": "date_time_no_millis"
+                }
+              }
+            },
+            "type": {
+              "type": "keyword"
+            }
+          }
+        },
+        "facets": {
+          "properties": {
+            "id": {
+              "type": "keyword"
+            },
+            "new_name": {
+              "type": "keyword"
+            },
+            "pretty_name": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "values": {
+              "properties": {
+                "boosts": {
+                  "type": "keyword"
+                },
+                "bury": {
+                  "type": "keyword"
+                },
+                "sort_type": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "id": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "indexMetrics": {
+          "properties": {
+            "deploymentTime": {
+              "type": "date"
+            },
+            "generatedTime": {
+              "type": "date"
+            },
+            "readTime": {
+              "type": "date"
+            },
+            "transformedTime": {
+              "type": "date"
+            }
+          }
+        }
+      }
+    },
+    "settings": {
+      "index": {
+        "refresh_interval": "60s",
+        "number_of_shards": "1",
+        "unassigned": {
+          "node_left": {
+            "delayed_timeout": "25m"
+          }
+        },
+        "analysis": {
+          "normalizer": {
+            "keyword_normalizer": {
+              "filter": [
+                "lowercase",
+                "asciifolding"
+              ],
+              "type": "custom"
+            }
+          }
+        },
+        "number_of_replicas": "0"
+      }
+    }
+  }

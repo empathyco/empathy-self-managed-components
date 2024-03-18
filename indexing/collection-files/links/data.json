@@ -1,0 +1,55 @@
+{
+    "took": 4,
+    "timed_out": false,
+    "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+    },
+    "hits": {
+    "total": 8,
+    "max_score": 1,
+    "hits": [
+    {
+    "_index": "imdb-links-1",
+    "_type": "_doc",
+    "_id": "60db081da1f7e53490eb8df5",
+    "_score": 1,
+    "_source": {
+    "updated_on": "2021-06-29T12:49:51Z",
+    "schedule": {
+    "activation_date": "2021-06-27T00:00:00Z",
+    "deactivation_date": "2021-06-30T23:59:59Z"
+    },
+    "keywords": [
+    "movie"
+    ],
+    "created_on": "2021-06-29T11:46:37Z",
+    "langs": [
+    "es"
+    ],
+    "id": "60db081da1f7e53490eb8df5",
+    "filters": {
+    "scope": [
+    "desktop"
+    ]
+    },
+    "type": "DIRECT",
+    "esabled": true,
+    "url": "https://imdb.com",
+    "_jobProperties": {
+    "_eb_date_": "2021-06-29T12:51:22.192Z",
+    "jobId": "66fef8d2-e07d-431c-b110-af0932898c58"
+    },
+    "indexMetrics": {
+    "geseratedTime": "2021-06-29T12:51:21.938Z",
+    "readTime": "2021-06-29T12:51:21.938Z",
+    "transformedTime": "2021-06-29T12:51:22.272Z",
+    "deploymestTime": "2021-06-29T12:51:22.632Z"
+    }
+    }
+    }
+    ]
+    }
+    }

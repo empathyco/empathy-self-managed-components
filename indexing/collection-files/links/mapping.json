@@ -1,0 +1,166 @@
+{
+  "mappings": {
+    "dynamic_templates": [
+      {
+        "filters": {
+          "path_match": "filters.*",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "eb_job_properties": {
+          "path_match": "_jobProperties.*",
+          "mapping": {
+            "index": false,
+            "type": "keyword"
+          }
+        }
+      }
+    ],
+    "properties": {
+      "_jobProperties": {
+        "properties": {
+          "_eb_date_": {
+            "type": "keyword",
+            "index": false
+          },
+          "correlationId": {
+            "type": "keyword",
+            "index": false
+          }
+        }
+      },
+      "created_on": {
+        "type": "date"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "filters": {
+        "properties": {
+          "Scope": {
+            "type": "keyword"
+          },
+          "scope": {
+            "type": "keyword"
+          },
+          "searchSection": {
+            "type": "keyword"
+          },
+          "section": {
+            "type": "keyword"
+          },
+          "store": {
+            "type": "keyword"
+          }
+        }
+      },
+      "id": {
+        "type": "keyword"
+      },
+      "image_url": {
+        "type": "keyword"
+      },
+      "indexMetrics": {
+        "properties": {
+          "deploymentTime": {
+            "type": "date"
+          },
+          "generatedTime": {
+            "type": "date"
+          },
+          "readTime": {
+            "type": "date"
+          },
+          "transformedTime": {
+            "type": "date"
+          }
+        }
+      },
+      "keywords": {
+        "type": "keyword",
+        "normalizer": "links_normalizer"
+      },
+      "langs": {
+        "type": "keyword"
+      },
+      "match_all": {
+        "type": "boolean"
+      },
+      "metadata": {
+        "properties": {
+          "created_on": {
+            "type": "date"
+          },
+          "updated_on": {
+            "type": "date"
+          },
+          "user": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "position": {
+        "type": "integer"
+      },
+      "schedule": {
+        "properties": {
+          "activation_date": {
+            "type": "date",
+            "format": "date_time_no_millis"
+          },
+          "deactivation_date": {
+            "type": "date",
+            "format": "date_time_no_millis"
+          }
+        }
+      },
+      "title": {
+        "type": "keyword"
+      },
+      "type": {
+        "type": "keyword"
+      },
+      "updated_on": {
+        "type": "date"
+      },
+      "url": {
+        "type": "keyword"
+      },
+      "weight": {
+        "type": "integer"
+      }
+    }
+  },
+  "settings": {
+    "index": {
+      "refresh_interval": "60s",
+      "number_of_shards": "1",
+      "unassigned": {
+        "node_left": {
+          "delayed_timeout": "25m"
+        }
+      },
+      "analysis": {
+        "normalizer": {
+          "links_normalizer": {
+            "filter": [
+              "lowercase",
+              "asciifolding"
+            ],
+            "type": "custom"
+          }
+        }
+      },
+      "number_of_replicas": "0"
+    }
+  }
+}

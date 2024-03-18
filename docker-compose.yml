@@ -8,18 +8,21 @@ services:
     networks:
       - empathy_network
     environment:
-      - "cluster.name=elasticsearch-cluster"
-      - "node.name=elasticsearch"
-      - "xpack.security.enabled=false"
-      - "discovery.type=single-node"
-      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+      - "cluster.name=elasticsearch-cluster" #Sets the cluster name
+      - "node.name=elasticsearch" #Sets node name
+      - "network.host=0.0.0.0"  #Sets binding IP to all
+      - "xpack.security.enabled=false" #Disables xpack security
+      - "xpack.monitoring.enabled=true" #Disables xpack monitoring
+      - "xpack.monitoring.collection.enabled=true"
+      - "xpack.watcher.enabled=false" #Disables xpack watcher
+      - "xpack.ml.enabled=false" #Disables xpack machine learning
+      - "bootstrap.memory_lock=true"  #Disables memory swap
+      - "discovery.type=single-node" #Disable bootstrap checks
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m" #Sets allocated memory
     ulimits:
       memlock:
         soft: -1
         hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
     cap_add:
       - "IPC_LOCK"
     volumes:
@@ -49,3 +52,13 @@ services:
       - "./srv/collection-config:/srv/collection-config"
     ports:
       - 8080:8080
+  indexing_job:
+    build:
+      context: ./indexing
+      dockerfile: Dockerfile
+    container_name: indexing-job-local
+    volumes:
+      - "./indexing/scripts:/scripts"
+      - "./collection-files:/collection-files"
+    depends_on:
+      - elasticsearch
