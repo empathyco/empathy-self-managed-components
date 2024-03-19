@@ -53,6 +53,6 @@ services:
     container_name: indexing-job-local
     volumes:
       - "./indexing/scripts:/scripts"
-      - "./collection-files:/collection-files"
+      - "./indexing/collection-files:/collection-files"
     depends_on:
       - elasticsearch

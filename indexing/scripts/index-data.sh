@@ -20,11 +20,11 @@ function index_all() {
      for LANG_PATH in $path/*; do
       LANG=$(basename $LANG_PATH)
       echo "Processing lang: $LANG"
-      index $INDEX_TYPE "empathy-$INDEX_TYPE-$LANG" "$basePath/$INDEX_TYPE/$LANG"
+      index $INDEX_TYPE "imdb-$INDEX_TYPE-$LANG" "$basePath/$INDEX_TYPE/$LANG"
      done
    else
      echo "Indexing the feed"
-     index $INDEX_TYPE "empathy-$INDEX_TYPE" "$basePath/$INDEX_TYPE"
+     index $INDEX_TYPE "imdb-$INDEX_TYPE" "$basePath/$INDEX_TYPE"
    fi
  done
 }
@@ -74,6 +74,8 @@ function index_content() {
   echo "Indexing data for $INDEX"
 
   jq --compact-output '.hits.hits[]._source | {"index":{}}, .' $DATAFILE > formatted-data.json
+
+  cat formatted-data.json
 
   status_code=$(curl -XPOST "$elasticsearch/$INDEX/_doc/_bulk" -H 'Content-Type: application/x-ndjson' --data-binary @formatted-data.json --write-out %{http_code} --silent --output /dev/null)
 
