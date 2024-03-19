@@ -73,7 +73,7 @@ function index_content() {
 
   echo "Indexing data for $INDEX"
 
-  jq --compact-output '.hits.hits[]._source | {"index":{}}, .' $DATAFILE > formatted-data.json
+  jq --compact-output '.hits.hits[]._source | {"index":{}},.' $DATAFILE > formatted-data.json
 
   cat formatted-data.json
 
