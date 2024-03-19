@@ -77,11 +77,11 @@ function index_content() {
 
   cat formatted-data.json
 
-  status_code=$(curl -XPOST "$elasticsearch/$INDEX/_doc/_bulk" -H 'Content-Type: application/x-ndjson' --data-binary @formatted-data.json --write-out %{http_code} --silent --output /dev/null)
+  status_code=$(curl -XPOST "$elasticsearch/$INDEX/_bulk" -H 'Content-Type: application/x-ndjson' --data-binary @formatted-data.json --write-out %{http_code} --silent --output /dev/null)
 
   if [ $status_code -ne "200" ]
   then
-    curl -XPOST "$elasticsearch/$INDEX/_doc/_bulk" -H 'Content-Type: application/x-ndjson' --data-binary @formatted-data.json
+    curl -XPOST "$elasticsearch/$INDEX/_bulk" -H 'Content-Type: application/x-ndjson' --data-binary @formatted-data.json
     rm formatted-data.json
     exit 1
   fi
