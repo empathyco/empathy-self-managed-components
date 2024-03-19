@@ -8,8 +8,8 @@ services:
     networks:
       - empathy_network
     environment:
-      - "cluster.name=elasticsearch-cluster"
-      - "node.name=elasticsearch"
+      - "cluster.name=elasticsearch-cluster" #Sets the cluster name
+      - "node.name=elasticsearch" #Sets node name
       - "xpack.security.enabled=false"
       - "discovery.type=single-node"
       - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
@@ -17,9 +17,6 @@ services:
       memlock:
         soft: -1
         hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
     cap_add:
       - "IPC_LOCK"
     volumes:
@@ -49,3 +46,13 @@ services:
       - "./srv/collection-config:/srv/collection-config"
     ports:
       - 8080:8080
+  indexing_job:
+    build:
+      context: ./indexing
+      dockerfile: Dockerfile
+    container_name: indexing-job-local
+    volumes:
+      - "./indexing/scripts:/scripts"
+      - "./indexing/collection-files:/collection-files"
+    depends_on:
+      - elasticsearch

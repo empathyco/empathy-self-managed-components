@@ -1,0 +1,119 @@
+{
+    "mappings": {
+      "dynamic_templates": [
+        {
+          "extra_fields": {
+            "match": "extra_*",
+            "mapping": {
+              "type": "keyword"
+            }
+          }
+        },
+        {
+          "eb_job_properties": {
+            "path_match": "_jobProperties.*",
+            "mapping": {
+              "index": false,
+              "type": "keyword"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "extra_lang": {
+          "type": "keyword"
+        },
+        "keywords": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "copy_to": [
+            "spellcheck"
+          ],
+          "analyzer": "searchauto_index_analyzer",
+          "search_analyzer": "searchable_search_analyzer"
+        },
+        "product_id": {
+          "type": "keyword"
+        },
+        "spellcheck": {
+          "type": "text",
+          "fields": {
+            "trigram": {
+              "type": "text",
+              "analyzer": "trigram"
+            }
+          },
+          "analyzer": "spellcheck_index_analyzer",
+          "search_analyzer": "spellcheck_search_analyzer"
+        },
+        "weight": {
+          "type": "long"
+        }
+      }
+    },
+    "settings": {
+      "index": {
+        "refresh_interval": "60s",
+        "number_of_shards": "1",
+        "sort": {
+          "field": "weight",
+          "order": "desc"
+        },
+        "analysis": {
+          "filter": {
+            "ngram_tokenizer": {
+              "type": "edge_ngram",
+              "min_gram": "1",
+              "max_gram": "20"
+            }
+          },
+          "analyzer": {
+            "searchauto_index_analyzer": {
+              "filter": [
+                "lowercase",
+                "asciifolding",
+                "ngram_tokenizer",
+                "remove_duplicates"
+              ],
+              "type": "custom",
+              "tokenizer": "standard"
+            },
+            "spellcheck_index_analyzer": {
+              "filter": [
+                "lowercase"
+              ],
+              "type": "custom",
+              "tokenizer": "standard"
+            },
+            "spellcheck_search_analyzer": {
+              "filter": [
+                "lowercase"
+              ],
+              "type": "custom",
+              "tokenizer": "standard"
+            },
+            "trigram": {
+              "filter": [
+                "lowercase",
+                "shingle"
+              ],
+              "type": "custom",
+              "tokenizer": "standard"
+            },
+            "searchable_search_analyzer": {
+              "filter": [
+                "lowercase",
+                "asciifolding"
+              ],
+              "type": "custom",
+              "tokenizer": "standard"
+            }
+          }
+        }
+      }
+    }
+  }

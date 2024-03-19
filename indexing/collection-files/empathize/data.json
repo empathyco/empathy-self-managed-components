@@ -1,0 +1,84 @@
+{
+    "took": 3,
+    "timed_out": false,
+    "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 1687,
+            "relation": "eq"
+        },
+        "max_score": 1,
+        "hits": [
+            {
+                "_index": "imdb-empathize-1690349643637",
+                "_type": "_doc",
+                "_id": "c1b12dc1-a878-4d00-84ac-39caa33e81d5",
+                "_score": 1,
+                "_source": {
+                    "keywords": "quijote",
+                    "weight": 79708,
+                    "extra_lang": [
+                        "es"
+                    ]
+                }
+            },
+            {
+                "_index": "imdb-empathize-1690349643637",
+                "_type": "_doc",
+                "_id": "f6b79043-1d1d-4f6d-8f17-7ecfa98f62f7",
+                "_score": 1,
+                "_source": {
+                    "keywords": "wonderland",
+                    "weight": 76696,
+                    "extra_lang": [
+                        "es"
+                    ]
+                }
+            },
+            {
+                "_index": "imdb-empathize-1690349643637",
+                "_type": "_doc",
+                "_id": "840b60e0-a648-4e65-9a75-07e81fd59569",
+                "_score": 1,
+                "_source": {
+                    "keywords": "lohengrin",
+                    "weight": 64177,
+                    "extra_lang": [
+                        "es"
+                    ]
+                }
+            },
+            {
+                "_index": "imdb-empathize-1690349643637",
+                "_type": "_doc",
+                "_id": "db758450-700b-4884-8d18-4138422eb5ce",
+                "_score": 1,
+                "_source": {
+                    "keywords": "mickey",
+                    "weight": 54258,
+                    "extra_lang": [
+                        "es"
+                    ]
+                }
+            },
+            {
+                "_index": "imdb-empathize-1690349643637",
+                "_type": "_doc",
+                "_id": "5689bb67-bc3e-4160-8bb8-037a31f518a5",
+                "_score": 1,
+                "_source": {
+                    "keywords": "devil",
+                    "weight": 52493,
+                    "extra_lang": [
+                        "es"
+                    ]
+                }
+            }
+        ]
+    }
+}
