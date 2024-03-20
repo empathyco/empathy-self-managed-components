@@ -1,6 +1,18 @@
 {
     "mappings" : {
       "properties" : {
+        "spellcheck": {
+          "type": "text",
+          "fields": {
+            "trigram": {
+              "type": "text",
+              "analyzer": "trigram"
+            }
+          },
+          "store": true,
+          "analyzer": "spellcheck_index_analyzer",
+          "search_analyzer": "spellcheck_search_analyzer"
+        },
         "__boostId" : {
           "type" : "keyword",
           "index" : false,
@@ -187,6 +199,9 @@
         "startYear" : {
           "type" : "integer"
         },
+        "endYear" : {
+          "type" : "integer"
+        },
         "runtimeMinutes" : {
           "type" : "integer"
         }
@@ -307,6 +322,23 @@
               ],
               "type" : "custom",
               "tokenizer" : "standard"
+            },
+            "spellcheck_index_analyzer": {
+              "type": "custom",
+              "tokenizer": "standard",
+              "filter": [
+                "lowercase",
+                "asciifolding"
+              ]
+            },
+            "spellcheck_search_analyzer": {
+              "type": "custom",
+              "tokenizer": "standard",
+              "filter": [
+                "lowercase",
+                "stopwords",
+                "asciifolding"
+              ]
             }
           }
         },
