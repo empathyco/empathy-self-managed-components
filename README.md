@@ -11,7 +11,6 @@ In order to run this kit, you need to have intalled the following technogies:
 
 ### How to run
 Once you have the necessary stack you can execute everything with just one command:
-
     ```
     docker-compose up -d
     ```
