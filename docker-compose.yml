@@ -54,7 +54,7 @@ services:
     environment:
       - VUE_APP_DEVELOPMENT_DOCKER=true
     ports:
-      - 8081:8080
+      - 8081:80
   indexing_job:
     build:
       context: ./indexing
