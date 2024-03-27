@@ -47,7 +47,7 @@ services:
     ports:
       - 8080:8080
   frontend:
-    image: ghcr.io/empathyco/x-archetype:feat-emp-3684-create-docker-image
+    image: ghcr.io/empathyco/x-archetype:main
     container_name: frontend
     networks:
       - empathy_network
