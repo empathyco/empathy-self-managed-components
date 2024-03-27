@@ -47,24 +47,6 @@
                   "doc_values" : false
                 }
               }
-            },
-            "future" : {
-              "properties" : {
-                "value" : {
-                  "type" : "float",
-                  "index" : false,
-                  "doc_values" : false
-                }
-              }
-            },
-            "previous" : {
-              "properties" : {
-                "value" : {
-                  "type" : "float",
-                  "index" : false,
-                  "doc_values" : false
-                }
-              }
             }
           }
         },
