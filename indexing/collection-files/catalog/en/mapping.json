@@ -256,7 +256,6 @@
             "searchable_search_analyzer" : {
               "filter" : [
                 "lowercase",
-                "stop",
                 "asciifolding"
               ],
               "type" : "custom",
@@ -297,7 +296,6 @@
             "searchderived_search_analyzer" : {
               "filter" : [
                 "lowercase",
-                "stop",
                 "asciifolding",
                 "stemmer",
                 "synonyms"
@@ -318,7 +316,6 @@
               "tokenizer": "standard",
               "filter": [
                 "lowercase",
-                "stopwords",
                 "asciifolding"
               ]
             }

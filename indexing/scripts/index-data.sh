@@ -11,6 +11,7 @@ basePath="$1"
 
 function index_all() {
  for path in $basePath/*; do
+ echo "BASEPATH: $basePath"
    INDEX_TYPE=$(basename $path)
    echo "Processing: $INDEX_TYPE"
 

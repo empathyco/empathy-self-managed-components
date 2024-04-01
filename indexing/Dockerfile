@@ -1,4 +1,4 @@
 FROM ubuntu:22.04
 RUN apt-get update
 RUN apt-get install -y curl jq
-CMD ["/scripts/index-data.sh", "/indexing/collection-files"]
+CMD ["/scripts/index-data.sh", "/collection-files"]
