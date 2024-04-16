@@ -186,6 +186,9 @@
         },
         "runtimeMinutes" : {
           "type" : "integer"
+        },
+        "description" : {
+          "type" : "text"
         }
       }
     },
