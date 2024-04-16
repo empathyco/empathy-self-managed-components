@@ -3,7 +3,7 @@
     "timed_out": false,
     "_shards": {
         "total": 1,
-        "successful": 1,
+        "succensful": 1,
         "skipped": 0,
         "failed": 0
     },
@@ -11,6 +11,50 @@
         "total": 5,
         "max_score": 1.0,
         "hits": [
+            {
+                "_source":{
+                "id":"65cdef2787ca7f132bbc247d",
+                "context":{
+                   "pivots":{
+                      "lang":[
+                         "en"
+                      ]
+                   },
+                   "keywords":[
+                      "hamlet"
+                   ]
+                },
+                "elements_ranking":[
+                   {
+                      "field_name":"__id",
+                      "field_value":"tt0000306",
+                      "action":"BURY",
+                      "schedule":{
+                         
+                      },
+                      "filters":{
+                         
+                      },
+                      "type":"PRODUCTS"
+                   },
+                   {
+                      "field_name":"__id",
+                      "field_value":"tt0001242",
+                      "action":"BURY",
+                      "schedule":{
+                         
+                      },
+                      "filters":{
+                         
+                      },
+                      "type":"PRODUCTS"
+                   }
+                ],
+                "facets":[
+                   
+                ]
+             }
+            }
         ]
     }
 }
