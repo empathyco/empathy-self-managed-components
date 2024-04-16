@@ -46,6 +46,15 @@ services:
       - "./srv/collection-config:/srv/collection-config"
     ports:
       - 8080:8080
+  frontend:
+    image: ghcr.io/empathyco/x-archetype:main
+    container_name: frontend
+    networks:
+      - empathy_network
+    environment:
+      - VUE_APP_DEVELOPMENT_DOCKER=true
+    ports:
+      - 8081:80
   indexing_job:
     build:
       context: ./indexing

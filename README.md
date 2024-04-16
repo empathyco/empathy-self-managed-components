@@ -15,9 +15,12 @@ Once you have the necessary stack you can execute everything with just one comma
     ```
     docker-compose up -d
     ```
+
 Make sure you have root permises.
 
-Once everything is up and ready (you can see it executing `docker ps` or seeing the status of containers in the Docker Desktop GUI). You can perform a search request like [http://localhost:8080/query/imdb/search?query=wonderland&lang=es](http://localhost:8080/query/imdb/search?query=wonderland&lang=es)
+Once everything is up and ready (you can see it executing `docker ps` or seeing the status of containers in the Docker Desktop GUI). You can perform a search request like [http://localhost:8080/query/imdb/search?query=wonderland&lang=en](http://localhost:8080/query/imdb/search?query=wonderland&lang=en)
+
+Our use the frontend on [http://localhost:8081](http://localhost:8081)
 
 ### What is happening?
-Once you execute the containers, a search and elastic containers will initiate, but also an indexing job to insert the necessary collections into your elasticsearch, yo wait until it is finished and you will be able to start searching using a small version of the IMDB public catalog.
+Once you execute the containers, a search and elastic containers will initiate, but also an indexing job to insert the necessary collections into your elasticsearch, so wait until it is finished and you will be able to start searching using a small version of the IMDB public catalog.
