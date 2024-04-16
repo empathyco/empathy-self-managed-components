@@ -107,6 +107,57 @@
              "type":"custom"
           },
           {
+            "id": "topclicked",
+            "requestors": [
+              {
+                "features": {
+                  "search": [
+                    {
+                      "config": {
+                        "filters": [
+                          {
+                            "field": "extra.lang",
+                            "queryParam": "lang"
+                          },
+                          {
+                            "field": "extra.scope",
+                            "queryParam": "scope"
+                          }
+                        ],
+                        "idFieldName": "groupId",
+                        "redisCached": true,
+                        "redisTTL": 250
+                      },
+                      "name": "topClickedSearch"
+                    },
+                    {
+                      "config": {
+                        "rows": 20,
+                        "start": 0
+                      },
+                      "name": "pagination"
+                    },
+                    {
+                      "name": "searchHits"
+                    },
+                    {
+                      "name": "totalHits"
+                    },
+                    {
+                      "name": "debug"
+                    }
+                  ]
+                },
+                "id": "topclicked",
+                "mainCollectionId": "imdb",
+                "redisCached": true,
+                "redisTTL": 250,
+                "type": "default"
+              }
+            ],
+            "type": "custom"
+          },
+          {
              "id":"search",
              "requestors":[
                 {
