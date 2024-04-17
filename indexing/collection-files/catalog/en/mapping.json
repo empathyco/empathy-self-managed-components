@@ -189,6 +189,9 @@
         },
         "description" : {
           "type" : "text"
+        },
+        "price" : {
+          "type" : "float"
         }
       }
     },

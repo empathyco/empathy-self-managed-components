@@ -1107,6 +1107,19 @@
              }
           },
           {
+            "_index":"imdb-empathize-1690349643637",
+            "_type":"_doc",
+            "_id":"c1b12dc1-a878-4d00-84ac-39caa33e81p5",
+            "_score":1,
+            "_source":{
+               "keywords":"wonderland adventures",
+               "weight":5,
+               "extra_lang":[
+                  "en"
+               ]
+            }
+         },
+          {
              "_index":"imdb-empathize-1690349643637",
              "_type":"_doc",
              "_id":"c1b12dc1-a878-4d00-84ac-39caa33e81d5",

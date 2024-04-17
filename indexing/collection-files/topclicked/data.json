@@ -48,7 +48,7 @@
              "_id":"c1b12dc1-a878-4d00-84ac-39caa33e81d5",
              "_score":1,
              "_source":{
-                "product_id":"tt0009532",
+                "product_id":"tt0014773",
                 "click_count":15,
                 "lang":"en",
                 "extra":{
@@ -62,7 +62,7 @@
              "_id":"c1b12dc1-a878-4d00-84ac-39caa33e81d5",
              "_score":1,
              "_source":{
-                "product_id":"tt0000398",
+                "product_id":"tt0010491",
                 "click_count":15,
                 "lang":"en",
                 "extra":{
@@ -76,7 +76,7 @@
              "_id":"c1b12dc1-a878-4d00-84ac-39caa33e81d5",
              "_score":1,
              "_source":{
-                "product_id":"tt0009608",
+                "product_id":"tt0007272",
                 "click_count":14,
                 "lang":"en",
                 "extra":{
