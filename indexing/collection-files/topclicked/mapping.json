@@ -1,0 +1,47 @@
+{
+  "mappings": {
+    "dynamic_templates": [
+      {
+        "extra_fields": {
+          "match": "extra_*",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "eb_job_properties": {
+          "path_match": "_jobProperties.*",
+          "mapping": {
+            "index": false,
+            "type": "keyword"
+          }
+        }
+      }
+    ],
+    "properties": {
+      "click_count": {
+        "type": "long"
+      },
+      "extra": {
+        "properties": {
+          "lang": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "lang": {
+        "type": "keyword"
+      },
+      "product_id": {
+        "type": "keyword"
+      }
+    }
+  }
+}

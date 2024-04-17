@@ -107,6 +107,53 @@
              "type":"custom"
           },
           {
+            "id": "topclicked",
+            "requestors": [
+              {
+                "features": {
+                  "search": [
+                    {
+                      "config": {
+                        "filters": [
+                          {
+                            "field": "extra.lang",
+                            "queryParam": "lang"
+                          }
+                        ],
+                        "idFieldName": "id",
+                        "redisCached": true,
+                        "redisTTL": 250
+                      },
+                      "name": "topClickedSearch"
+                    },
+                    {
+                      "config": {
+                        "rows": 20,
+                        "start": 0
+                      },
+                      "name": "pagination"
+                    },
+                    {
+                      "name": "searchHits"
+                    },
+                    {
+                      "name": "totalHits"
+                    },
+                    {
+                      "name": "debug"
+                    }
+                  ]
+                },
+                "id": "topclicked",
+                "mainCollectionId": "imdb",
+                "redisCached": true,
+                "redisTTL": 250,
+                "type": "default"
+              }
+            ],
+            "type": "custom"
+          },
+          {
              "id":"search",
              "requestors":[
                 {
@@ -155,7 +202,8 @@
                                ],
                                "whitelist":[
                                   "_score",
-                                  "startYear"
+                                  "startYear",
+                                  "price"
                                ]
                             },
                             "name":"sorting"
@@ -179,7 +227,7 @@
                                      "type":"VALUE"
                                   },
                                   {
-                                     "name":"runtimeMinutes",
+                                     "name":"price",
                                      "type":"RANGE"
                                   },
                                   {
@@ -197,22 +245,17 @@
                                "facetableFields":{
                                   "rangeFacets":[
                                      {
-                                        "field":"runtimeMinutes",
+                                        "field":"price",
                                         "ranges":[
                                           {
                                              "from":0,
-                                             "gap":2,
+                                             "gap":5,
                                              "to":10
                                           }, 
                                           {
                                               "from":10,
-                                              "gap":20,
-                                              "to":60
-                                           },
-                                           {
-                                              "from":60,
-                                              "gap":60,
-                                              "to":2000
+                                              "gap":10,
+                                              "to":40
                                            }
                                         ]
                                      }
@@ -233,13 +276,20 @@
                                   "genres",
                                   "isAdult",
                                   "type",
-                                  "runtimeMinutes"
+                                  "price"
                                ],
                                "mainCollectionId":"imdb",
                                "secondaryCollectionId":"imdb"
                             },
                             "name":"faceting"
                          },
+                         {
+                           "name":"grouping",
+                           "config":{
+                              "enabled":true,
+                              "field":"id"
+                           }
+                        },
                          {
                             "name":"searchHits"
                          },

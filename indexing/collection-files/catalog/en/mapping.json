@@ -186,6 +186,12 @@
         },
         "runtimeMinutes" : {
           "type" : "integer"
+        },
+        "description" : {
+          "type" : "text"
+        },
+        "price" : {
+          "type" : "float"
         }
       }
     },
