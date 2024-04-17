@@ -118,13 +118,9 @@
                           {
                             "field": "extra.lang",
                             "queryParam": "lang"
-                          },
-                          {
-                            "field": "extra.scope",
-                            "queryParam": "scope"
                           }
                         ],
-                        "idFieldName": "groupId",
+                        "idFieldName": "id",
                         "redisCached": true,
                         "redisTTL": 250
                       },
@@ -206,7 +202,8 @@
                                ],
                                "whitelist":[
                                   "_score",
-                                  "startYear"
+                                  "startYear",
+                                  "price"
                                ]
                             },
                             "name":"sorting"
@@ -230,7 +227,7 @@
                                      "type":"VALUE"
                                   },
                                   {
-                                     "name":"runtimeMinutes",
+                                     "name":"price",
                                      "type":"RANGE"
                                   },
                                   {
@@ -248,22 +245,17 @@
                                "facetableFields":{
                                   "rangeFacets":[
                                      {
-                                        "field":"runtimeMinutes",
+                                        "field":"price",
                                         "ranges":[
                                           {
                                              "from":0,
-                                             "gap":2,
+                                             "gap":5,
                                              "to":10
                                           }, 
                                           {
                                               "from":10,
-                                              "gap":20,
-                                              "to":60
-                                           },
-                                           {
-                                              "from":60,
-                                              "gap":60,
-                                              "to":2000
+                                              "gap":10,
+                                              "to":40
                                            }
                                         ]
                                      }
@@ -284,7 +276,7 @@
                                   "genres",
                                   "isAdult",
                                   "type",
-                                  "runtimeMinutes"
+                                  "price"
                                ],
                                "mainCollectionId":"imdb",
                                "secondaryCollectionId":"imdb"
