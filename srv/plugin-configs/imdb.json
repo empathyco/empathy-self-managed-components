@@ -1,5 +1,15 @@
 {
     "params":{
+      "equalize": [
+         {
+            "boost": 3,
+            "field": "__name"
+          },
+          {
+            "boost": 2,
+            "field": "genre"
+          }
+       ],
        "endPoints":[
           {
              "id":"empathize",
@@ -126,6 +136,13 @@
                       },
                       "name": "topClickedSearch"
                     },
+                    {
+                     "name":"grouping",
+                     "config":{
+                        "enabled":true,
+                        "field":"id"
+                     }
+                  },
                     {
                       "config": {
                         "rows": 20,
