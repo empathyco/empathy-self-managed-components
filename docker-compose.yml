@@ -37,9 +37,10 @@ services:
       - COLLECTION_NAMING_CONFIG_LOCAL_PATH=/srv/collection-config/collection-name-config.json
       - COLLECTION_NAMING_CONFIG_INSTANCE=test
       - PLUGINS_CONFIGS_LOCAL_PATH=/srv/plugin-configs
-      - CONTEXTUALIZE_ENABLED=false
+      - CONTEXTUALIZE_ENABLED=true
       - ELASTIC_READ_URL=http://elasticsearch:9200
       - TRACKING_ENABLED=false
+      - CONTEXTUALIZE_URL=https://contextualize-api.internal.staging.empathy.co
     volumes:
       - "./srv/plugins:/srv/plugins"
       - "./srv/plugin-configs:/srv/plugin-configs"
