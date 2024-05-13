@@ -188,7 +188,7 @@
              "_id":"c1b12dc1-a878-4d00-84ac-39caa33e81d5",
              "_score":1,
              "_source":{
-                "product_id":"tt0002044",
+                "product_id":"tt0001463",
                 "click_count":14,
                 "lang":"en",
                 "extra":{
