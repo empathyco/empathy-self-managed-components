@@ -219,7 +219,6 @@
                                ],
                                "whitelist":[
                                   "_score",
-                                  "startYear",
                                   "price"
                                ]
                             },
