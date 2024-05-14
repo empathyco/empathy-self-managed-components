@@ -21,7 +21,7 @@
       },
       {
         "_source": {
-          "keywords": "the fight for the great black diamond",
+          "keywords": "alice in wonderland",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -30,7 +30,7 @@
       },
       {
         "_source": {
-          "keywords": "the fable of the two unfettered birds",
+          "keywords": "adventures in wonderland",
           "weight": 3,
           "extra_lang": [
             "en"
@@ -39,7 +39,7 @@
       },
       {
         "_source": {
-          "keywords": "clarita y peladilla van a los toros",
+          "keywords": "alice's adventures in wonderland",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -48,7 +48,7 @@
       },
       {
         "_source": {
-          "keywords": "das geheimnis von chateau richmond",
+          "keywords": "alice's wonderland",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -57,7 +57,7 @@
       },
       {
         "_source": {
-          "keywords": "colonel heeza liar and the pirates",
+          "keywords": "a modern cinderella",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -66,7 +66,7 @@
       },
       {
         "_source": {
-          "keywords": "the fable of book made to balance",
+          "keywords": "the cinderella man",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -75,7 +75,7 @@
       },
       {
         "_source": {
-          "keywords": "the lighthouse keeper's daughter",
+          "keywords": "lord browning and cinderella",
           "weight": 5,
           "extra_lang": [
             "en"
@@ -84,7 +84,7 @@
       },
       {
         "_source": {
-          "keywords": "colonel heeza liar capture villa",
+          "keywords": "a kentucky cinderella",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -93,7 +93,7 @@
       },
       {
         "_source": {
-          "keywords": "buffalo bill's wild west parade",
+          "keywords": "cinderella of the hills",
           "weight": 6,
           "extra_lang": [
             "en"
@@ -102,7 +102,7 @@
       },
       {
         "_source": {
-          "keywords": "britain's far flung battle line",
+          "keywords": "cinderellas twin",
           "weight": 5,
           "extra_lang": [
             "en"
@@ -111,7 +111,7 @@
       },
       {
         "_source": {
-          "keywords": "ultus 5 the secret of the night",
+          "keywords": "a lowland cinderella",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -120,7 +120,7 @@
       },
       {
         "_source": {
-          "keywords": "the winning of the mocking bird",
+          "keywords": "colonel hamlet",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -129,7 +129,7 @@
       },
       {
         "_source": {
-          "keywords": "the letter with the black seals",
+          "keywords": "le duel d'hamlet",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -138,7 +138,7 @@
       },
       {
         "_source": {
-          "keywords": "the burglar as father christmas",
+          "keywords": "a sagebrush hamlet",
           "weight": 4,
           "extra_lang": [
             "en"
@@ -147,7 +147,7 @@
       },
       {
         "_source": {
-          "keywords": "the story of the blood red rose",
+          "keywords": "sagebrush hamlet",
           "weight": 3,
           "extra_lang": [
             "en"

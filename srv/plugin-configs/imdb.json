@@ -200,7 +200,7 @@
                                   },
                                   {
                                     "name":"nameIfImage",
-                                    "boost": 20
+                                    "boost": 6
                                  }
                                ]
                             },
