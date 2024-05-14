@@ -192,6 +192,27 @@
         },
         "price" : {
           "type" : "float"
+        },
+        "nameIfImage" : {
+          "type" : "keyword",
+          "normalizer" : "lowercase_normalizer",
+          "fields" : {
+            "derived" : {
+              "type" : "text",
+              "analyzer" : "searchderived_index_analyzer",
+              "search_analyzer" : "searchderived_search_analyzer"
+            },
+            "ngram" : {
+              "type" : "text",
+              "analyzer" : "searchauto_index_analyzer",
+              "search_analyzer" : "searchable_search_analyzer"
+            },
+            "text" : {
+              "type" : "text",
+              "analyzer" : "searchable_index_analyzer",
+              "search_analyzer" : "searchable_search_analyzer"
+            }
+          }
         }
       }
     },

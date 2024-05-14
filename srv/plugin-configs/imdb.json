@@ -1,15 +1,5 @@
 {
     "params":{
-      "equalize": [
-         {
-            "boost": 3,
-            "field": "__name"
-          },
-          {
-            "boost": 2,
-            "field": "genre"
-          }
-       ],
        "endPoints":[
           {
              "id":"empathize",
@@ -193,17 +183,25 @@
                             "config":{
                                "searchableFields":[
                                   {
-                                     "name":"originalTitle"
+                                     "name":"originalTitle",
+                                     "boost": 2
                                   },
                                   {
-                                     "name":"primaryTitle"
+                                     "name":"primaryTitle",
+                                     "boost": 5
                                   },
                                   {
-                                     "name":"genres"
+                                     "name":"genres",
+                                     "boost": 2
                                   },
                                   {
-                                     "name":"type"
-                                  }
+                                     "name":"type",
+                                     "boost": 2
+                                  },
+                                  {
+                                    "name":"nameIfImage",
+                                    "boost": 20
+                                 }
                                ]
                             },
                             "name":"multiMatchSearch"
