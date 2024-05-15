@@ -1,15 +1,5 @@
 {
-    "took": 2,
-    "timed_out": false,
-    "_shards": {
-        "total": 1,
-        "succensful": 1,
-        "skipped": 0,
-        "failed": 0
-    },
     "hits": {
-        "total": 5,
-        "max_score": 1.0,
         "hits": [
             {
                 "_source":{
@@ -28,7 +18,7 @@
                    {
                       "field_name":"__id",
                       "field_value":"tt0000306",
-                      "action":"BURY",
+                      "action":"BOOST",
                       "schedule":{
                          
                       },
@@ -48,7 +38,25 @@
                          
                       },
                       "type":"PRODUCTS"
-                   }
+                   },
+                   {
+                     "field_name":"__id",
+                     "field_value":"tt0001241",
+                     "action":"BOOST",
+                     "type":"PRODUCTS"
+                  },
+                  {
+                     "field_name":"__id",
+                     "field_value":"tt0001240",
+                     "action":"BURY",
+                     "schedule":{
+                         
+                     },
+                     "filters":{
+                        
+                     },
+                     "type":"PRODUCTS"
+                  }
                 ],
                 "facets":[
                    

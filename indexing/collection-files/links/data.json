@@ -1,83 +1,71 @@
 {
-    "took": 4,
-    "timed_out": false,
-    "_shards": {
-    "total": 5,
-    "successful": 5,
-    "skipped": 0,
-    "failed": 0
-    },
-    "hits": {
-    "total": 8,
-    "max_score": 1,
+  "hits": {
     "hits": [
-    {
-    "_index": "imdb-links-1",
-    "_type": "_doc",
-    "_id": "60db081da1f7e53490eb8df5",
-    "_score": 1,
-    "_source": {
-      "id":"661f8b0d1d03727f6bda5fda",
-      "created_on":"2024-04-17T08:40:45Z",
-      "updated_on":"2024-04-17T08:40:45Z",
-      "enabled":true,
-      "metadata":{
-         "created_on":"2024-04-17T08:40:45Z",
-         "updated_on":"2024-04-17T08:40:45Z",
-         "user":"anamg@empathy.co"
+      {
+        "_source": {
+          "id":"661f8b0d1d03727f6bda5fda",
+          "enabled": true,
+          "url": "https://www.imdb.com/",
+          "type": "DIRECT",
+          "keywords": [
+            "imdb"
+          ],
+          "langs": [
+            "en"
+          ]
+        }
       },
-      "url":"https://www.imdb.com/",
-      "type":"DIRECT",
-      "keywords":[
-         "imdb"
-      ],
-      "langs":[
-         "en"
-      ],
-      "filters":{
-         
-      },
-      "schedule":{
-         
-      }
-   }
-    },
-    {
-        "_index":"imdb-links-1",
-        "_type":"_doc",
-        "_id":"61111585c7b82254ea1577e3",
-        "_score":1.0,
-        "_source":{
-         "id":"661e868686920a77214c90c4",
-         "created_on":"2024-04-16T14:09:10Z",
-         "updated_on":"2024-04-16T14:09:10Z",
-         "enabled":true,
-         "metadata":{
-            "created_on":"2024-04-16T14:09:10Z",
-            "updated_on":"2024-04-16T14:09:10Z",
-            "user":"anamg@empathy.co"
-         },
-         "url":"https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland",
-         "type":"PROMOTED",
-         "keywords":[
+      {
+        "_source": {
+          "id":"661f8b0d1d03727f6bda4fda",
+          "enabled": true,
+          "url": "https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland",
+          "type": "PROMOTED",
+          "keywords": [
             "wonderland",
             "alice in wonderland"
-         ],
-         "langs":[
+          ],
+          "langs": [
             "en"
-         ],
-         "filters":{
-            
-         },
-         "schedule":{
-            
-         },
-         "title":"Alice In Wonderland",
-         "position":1,
-         "image_url":"https://miro.medium.com/v2/resize:fit:946/1*ZrKqqzr9ZwjpuP1KkJ69eQ.jpeg",
-         "match_all":false
+          ],
+          "position": 1,
+          "image_url": "https://miro.medium.com/v2/resize:fit:946/1*ZrKqqzr9ZwjpuP1KkJ69eQ.jpeg",
+          "match_all": false
+        }
+      },
+      {
+        "_source": {
+          "id":"661f8p0d1d03727f6bda5fda",
+          "enabled": true,
+          "url": "https://en.wikipedia.org/wiki/Hamlet",
+          "type": "PROMOTED",
+          "keywords": [
+            "hamlet"
+          ],
+          "langs": [
+            "en"
+          ],
+          "position": 1,
+          "image_url": "https://img.freepik.com/free-vector/hand-drawn-shakespeare-illustration_23-2149285505.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1715040000&semt=sph",
+          "match_all": false
+        }
+      },
+      {
+        "_source": {
+          "id":"661f8b0d1d03727f6bda5fdo",
+          "enabled": true,
+          "url": "https://en.wikipedia.org/wiki/Black_Friday_(shopping)",
+          "type": "BANNER",
+          "keywords": [
+            "cinderella"
+          ],
+          "langs": [
+            "en"
+          ],
+          "image_url": "https://t4.ftcdn.net/jpg/04/50/91/67/360_F_450916782_ephwoRFhkUdv9sHuOegPgutiADRlz41o.jpg",
+          "match_all": false
+        }
       }
-     }
     ]
-    }
-    }
+  }
+}
