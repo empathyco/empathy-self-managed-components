@@ -25,7 +25,7 @@ services:
       - "9200:9200"
       - "9300:9300"
   search-service:
-    image: search-service@sha256:a37d560e4b5a72468f780969efd5a04be5dcd6c78bb90d4febec274140ac57ba
+    image: empathyco/search-service:28.10.1
     container_name: search-service
     networks:
       - empathy_network
@@ -40,7 +40,7 @@ services:
       - CONTEXTUALIZE_ENABLED=true
       - ELASTIC_READ_URL=http://elasticsearch:9200
       - TRACKING_ENABLED=false
-      - CONTEXTUALIZE_URL=https://contextualize-api.internal.staging.empathy.co
+      - CONTEXTUALIZE_URL=https://contextualize-api.internal.prod.empathy.co
     volumes:
       - "./srv/plugins:/srv/plugins"
       - "./srv/plugin-configs:/srv/plugin-configs"
