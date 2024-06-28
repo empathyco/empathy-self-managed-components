@@ -8,6 +8,13 @@ On this section, we will write the instructions to execute this kit.
 In order to run this kit, you need to have intalled the following technogies:
 * [Docker](https://www.docker.com/) (It can be [Docker Desktop](https://www.docker.com/products/docker-desktop/))
 * [Docker compose](https://docs.docker.com/compose/install/)
+* Access to the search-service docker image
+
+#### How to access the search-service docker image
+
+If you don't have access to the private empathy repositories, we can give you a token to access it! 
+
+Once you have contacted us and we sent the token, you can use it as a password for a user called **smcempathy** and you will be able to download all resources.
 
 ### How to run
 Once you have the necessary stack you can execute everything with just one command:
