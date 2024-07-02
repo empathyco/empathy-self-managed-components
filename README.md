@@ -35,7 +35,7 @@ Once you have the necessary stack, you execute the package with the following co
     ```
 
 
-Check that everything is up and running by executing `docker ps` or checking the containers status in the Docker Desktop GUI. 
+You can check that everything is up and running by executing `docker ps` or checking the containers' status in the Docker Desktop GUI. 
 
 Once you execute the containers, a search and Elastic containers start. Also, an indexing job is started to add the necessary collections into your Elasticsearch. Wait until all processes are completed (it takes 2-3 minutes) to start searching using the IMDB public catalog lite version provided.
 
