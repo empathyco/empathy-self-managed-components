@@ -37,7 +37,7 @@ Once you have the necessary stack, you execute the package with the following co
 
 You can check that everything is up and running by executing `docker ps` or checking the containers' status in the Docker Desktop GUI. 
 
-Once you execute the containers, a search and Elastic containers start. Also, an indexing job is started to add the necessary collections into your Elasticsearch. Wait until all processes are completed (it takes 2-3 minutes) to start searching using the IMDB public catalog lite version provided.
+Once you execute the containers, a search and Elastic containers start. Also, an indexing job starts to add the necessary collections to your Elasticsearch. Wait until all processes are completed (it takes 2-3 minutes) to start searching using the IMDB public catalogue lite version provided.
 
 Now, you're ready to go and play with SmC! You can perform a search request like [http://localhost:8080/query/imdb/search?query=wonderland&lang=en](http://localhost:8080/query/imdb/search?query=wonderland&lang=en) or use the UI on [http://localhost:8081](http://localhost:8081)
 
