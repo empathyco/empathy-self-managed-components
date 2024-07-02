@@ -26,7 +26,7 @@ To deploy the SmC package on any machine, perform the following steps:
 > **Access permissions**  
 > Make sure you have root permissions to run the SmC package. Otherwise, contact Empathy Platform [**First Line Support**](https://searchbroker.atlassian.net/servicedesk/customer/portal/1) or your **Empathy representative**.
 
-Once you have the necessary stack, you execute the package with the folllwing command:
+Once you have the necessary stack, you execute the package with the following command:
 
     ```shell
 
