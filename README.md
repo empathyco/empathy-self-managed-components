@@ -1,7 +1,7 @@
 # Empathy Self-managed Components
 Welcome to the Empathy Platform Self-managed Components (SmC) repository! 
 
-SmC is a set of the Empathy Platform essential search capabilities, features, and tools to get developers started with search and discovery experiences.
+SmC is a set of the Empathy Platform's essential capabilities, features, and tools to get developers started with search and discovery experiences.
 
 ## How to deploy
 
