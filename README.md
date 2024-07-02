@@ -57,7 +57,7 @@ You can check the SmC documentation on [Empathy Platform Docs](https://docs.empa
 * To learn about the Self-managed Components and its capabilities, check [**SmC overview**](https://docs.empathy.co/understand-empathy-platform/about-empathy-platform/self-managed-components) <!-- URL to be confirmed -->
 * To get detailed tehcnical information, check [**Try the SmC package**](https://docs.empathy.co/develop-empathy-platform/self-managed-components) guides.
 
-<!-- section specially handy when opening the project to collaborators
+<!-- section especially handy when opening the project to collaborators
 
 ## Contributors
 
