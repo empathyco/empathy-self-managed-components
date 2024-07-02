@@ -17,7 +17,7 @@ SmC is a set of the Empathy Platform essential search capabilities, features, an
 
 To deploy the SmC package on any machine, perform the following steps:
 
-1. Dowload or clone the SmC repository
+1. Download or clone the SmC repository
 2. Navigate to the root folder using Docker
 3. Execute the following command: `docker-compose up -d`
 
