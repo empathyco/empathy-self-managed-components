@@ -6,19 +6,19 @@ SmC is a set of the Empathy Platform's essential capabilities, features, and too
 ## How to deploy
 
 > **Requirements**  
-> Before you start, check you have installed the following:
+> Before you start, check you have installed/access the following:
 > * [Docker](https://www.docker.com/) or [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 > * [Docker compose](https://docs.docker.com/compose/install/)
 > * `search-service` docker image access
 
 > **Access permissions**  
 > To download the necessary resources to run the SmC package, you need access to the Empathy private repositories. Contact Empathy Platform [**First Line Support**](https://searchbroker.atlassian.net/servicedesk/customer/portal/1) or your Empathy representative to request your **access token**.  
-> Use the **token provided as a password** for the `**smcempathy**` user to download all resources.
+> Use the **token provided as a password** for the `smcempathy` user to download all resources.
 
 To deploy the SmC package on any machine, perform the following steps:
 
 1. Download or clone the SmC repository
-2. Navigate to the root folder using Docker
+2. Navigate to the root folder 
 3. Execute the following command: `docker-compose up -d`
 
 ## How to run
@@ -28,23 +28,19 @@ To deploy the SmC package on any machine, perform the following steps:
 
 Once you have the necessary stack, you execute the package with the following command:
 
-    ```shell
-
     docker-compose up -d
-
-    ```
 
 
 You can check that everything is up and running by executing `docker ps` or checking the containers' status in the Docker Desktop GUI. 
 
-Once you execute the containers, a search and Elastic containers start. Also, an indexing job starts to add the necessary collections to your Elasticsearch. Wait until all processes are completed (it takes 2-3 minutes) to start searching using the IMDB public catalogue lite version provided.
+Once you execute the containers, a search and Elasticsearch containers start. Also, an indexing job starts to add the necessary collections to your Elasticsearch. Wait until all processes are completed (it takes 2-3 minutes) to start searching using the IMDB public catalogue lite version provided.
 
 Now, you're ready to go and play with SmC! You can perform a search request like [http://localhost:8080/query/imdb/search?query=wonderland&lang=en](http://localhost:8080/query/imdb/search?query=wonderland&lang=en) or use the UI on [http://localhost:8081](http://localhost:8081)
 
 ### SmC ecosystem
 The SmC package includes the following:
 * An open-source sample catalogue with its corresponding indexing job
-* An image for Elasticsearch
+* A Docker image for Elasticsearch
 * A Docker image of the Empathy Platform's Search service
 * A UI built with Empathy Platform's open-source [Interface X archetype](https://github.com/empathyco/x-archetype).  
 
