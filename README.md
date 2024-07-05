@@ -37,14 +37,14 @@ The SmC package includes the following:
 * A Docker image of the Empathy Platform's Search service
 * A UI built with Empathy Platform's open-source [Interface X archetype](https://github.com/empathyco/x-archetype).  
 
-> Get to know more on the SmC archietcture on [Unveil the Self-managed Components ecosystem](https://docs.empathy.co/develop-empathy-platform/self-managed-components/smc-architecture.html).
+> Get to know more on the SmC archietcture on [Unveil the Self-managed Components ecosystem](https://docs.empathy.co/develop-empathy-platform/try-self-managed-components/smc-architecture.html).
 
 ## SmC documentation
 
 You can check the SmC documentation on [Empathy Platform Docs](https://docs.empathy.co) portal:
 
-* To learn about the Self-managed Components and their capabilities, check [**SmC overview**](https://docs.empathy.co/understand-empathy-platform/about-empathy-platform/self-managed-components-overview.html) <!-- URL to be confirmed -->
-* To get detailed tehcnical information, check [**Try the SmC package**](https://docs.empathy.co/develop-empathy-platform/self-managed-components) guides.
+* To learn about the Self-managed Components and their capabilities, check [**SmC overview**](https://docs.empathy.co/understand-empathy-platform/about-empathy-platform/self-managed-components-overview.html)
+* To get detailed tehcnical information, check [**Try the SmC package**](https://docs.empathy.co/develop-empathy-platform/try-self-managed-components) guides.
 
 <!-- section especially handy when opening the project to collaborators
 
